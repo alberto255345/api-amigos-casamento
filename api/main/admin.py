@@ -1,14 +1,14 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as DjangoUserAdmin
 
-from .models import User#, categoryUser
+from .models import User
 
 
 class UserAdmin(DjangoUserAdmin):
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
         ('Personal info', {'fields': ('name')}),
-        ('Permissions', {'fields': ('is_active', 'category')}),
+        ('Permissions', {'fields': ('is_active')}),
         ('Important dates', {'fields': ('last_login',)}),
     )
     add_fieldsets = (
@@ -20,5 +20,3 @@ class UserAdmin(DjangoUserAdmin):
     list_display = ('email', 'name', 'created_at', 'updated_at')
     search_fields = ('name', 'email')
     ordering = ('email',)
-
-#admin.site.register(categoryUser)

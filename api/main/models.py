@@ -16,23 +16,10 @@ class UserManager(BaseUserManager):
         return user
 
     def create_user(self, email=None, password=None, **extra_fields):
-        extra_fields.setdefault('category', '1')
         return self._create_user(email, password, **extra_fields)
 
     def create_superuser(self, email, password, **extra_fields):
-        extra_fields.setdefault('category', '1')
-
-        if extra_fields.get('category') is not '1':
-            raise ValueError('A category must be 1')
-
         return self._create_user(email, password, **extra_fields)
-
-# # Type of User
-# class categoryUser(models.Model):
-#     category = models.CharField('categoria', max_length=255, blank=True, null=True)
-
-#     def __str__(self):
-#         return self.category
 
 # Create user
 class User(AbstractBaseUser, PermissionsMixin):
@@ -41,7 +28,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField('email do usuário', unique=True)
     created_at = models.DateTimeField('criado as', auto_now_add=True)
     updated_at = models.DateTimeField('alterado as', auto_now=True)
-    # category = models.ForeignKey(categoryUser, on_delete=models.CASCADE)
     is_active = models.BooleanField(
         'active',
         default=True,

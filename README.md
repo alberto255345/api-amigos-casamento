@@ -3,10 +3,10 @@
 A Django project to help you wrangle a wedding's guests. Wedding Wrangle will:
 
 * Import a CSV of guests and the following data:
-    * Title
     * Full Name
     * Email
-    * Category
+    * Password
+    * Groups
 
 ## Stack used
 * Python
@@ -43,9 +43,9 @@ python manage.py migrate
 run:
 ```
 python manage.py createsuperuser
-python manage.py loaddata weddingwrangle/initial_data.json
+python manage.py loaddata main/initial_data.json
 ``` 
 
 3. *(Optional): import sample data to play with the database: go to
-   localhost:8000/guests, pick "Upload guestlist" and upload upload_data.csv*
+   localhost:8000/upload, pick "Upload csv" and upload upload_data.csv*
 

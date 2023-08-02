@@ -1,15 +1,12 @@
-from .models import User#, categoryUser
+from .models import User
 from rest_framework import serializers
 
 # Serializers Define Api
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'email', 'name', 'category', 'Active')
+        fields = ('id', 'email', 'name', 'is_active', 'groups')
 
-# class CategorySerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = categoryUser
-#         fields = ('id', 'category')
-
+class FileUploadSerializer(serializers.Serializer):
+    file = serializers.FileField()
 
