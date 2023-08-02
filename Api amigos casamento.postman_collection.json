@@ -1,0 +1,142 @@
+{
+	"info": {
+		"_postman_id": "ed38537c-f216-42e5-8733-36eba40311b2",
+		"name": "Api amigos casamento",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "28917486"
+	},
+	"item": [
+		{
+			"name": "Upload CSV",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjkxMDA2ODY0LCJpYXQiOjE2OTEwMDY1NjQsImp0aSI6ImQ2MWNkMWIyZDYyZDRlNDU4OTE5MTg4MzM2OTI5ODc5IiwidXNlcl9pZCI6MX0.3AWlC4lWPH0G-Yw3yI3BIOg6vv6qXYeMk9WeOKf6xNI"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Bnobr/OneDrive/Documentos/test.csv"
+						}
+					]
+				},
+				"url": "http://localhost:8000/upload/"
+			},
+			"response": []
+		},
+		{
+			"name": "Photos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjkxMDA3NDgyLCJpYXQiOjE2OTEwMDcxODIsImp0aSI6IjQ3MTA3MTBhMWMwMjQ2ZmRiNGE4YTFjMTcwMTc3Y2VkIiwidXNlcl9pZCI6Mn0.Pw-Y2kg3AGJDgKUEjk9q2nQ7MlW2uiv8nisDt4DnQqs"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/Bnobr/OneDrive/Imagens/Imagens da Câmera/20210115_201904.jpg"
+						}
+					]
+				},
+				"url": "http://localhost:8000/photos/"
+			},
+			"response": []
+		},
+		{
+			"name": "TOKEN",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "email1@email.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "senha",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:8000/token/"
+			},
+			"response": []
+		},
+		{
+			"name": "Aprovação",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjkxMDA3OTE2LCJpYXQiOjE2OTEwMDc2MTYsImp0aSI6IjlkMWM5ZWVmYjBmMTRkNmFiM2Q2ZWRhYmUzZTgzNWY5IiwidXNlcl9pZCI6Mn0.XLgN_cPQVvifqUz8wOPGDO3okRmOt81-eE1A7b8Ugtk"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"url": "http://localhost:8000/approved/1/"
+			},
+			"response": []
+		},
+		{
+			"name": "Like",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjkxMDA4MzQwLCJpYXQiOjE2OTEwMDgwNDAsImp0aSI6IjBlNmU4YWZhZGZkYzRhNjI5ZDk0ZjNlZmFkYzgxZTkyIiwidXNlcl9pZCI6Mn0.ynP7DQDM8-Foc44HnilojsvDKYQ4ecrqcPue12zT1C8"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"url": "http://localhost:8000/like/1/"
+			},
+			"response": []
+		},
+		{
+			"name": "comentar",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjkxMDA4NzEyLCJpYXQiOjE2OTEwMDg0MTIsImp0aSI6IjJhOGNjZjEyZDRjOTQ3MTQ4YjZkOWUwYWE0NzkyOWQ4IiwidXNlcl9pZCI6Mn0.yJzVW1bMAQjVbHNZevHVZELRHE3A__yHIdAGhkHuv4o"
+					}
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "comment",
+							"value": "Gostei Muito",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:8000/comment/1/"
+			},
+			"response": []
+		}
+	]
+}
