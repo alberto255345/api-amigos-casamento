@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from main.views import UserViewSet, UserUploadView
+from main.views import UserViewSet, UserUploadView, PhotoViewSet, approve_photo, like_photo, comment_photo
 from rest_framework import routers
 
 from rest_framework_simplejwt.views import (
@@ -27,6 +27,7 @@ from rest_framework_simplejwt.views import (
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
+router.register(r'photos', PhotoViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
@@ -35,4 +36,7 @@ urlpatterns = [
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('token/verify/', TokenVerifyView.as_view(), name='token_verify'),
     path('upload/', UserUploadView.as_view(), name='user-upload'),
+    path('approved/<int:photo_id>/', approve_photo, name='approve-photo'),
+    path('like/<int:photo_id>/', like_photo, name='like-photo'),
+    path('comment/<int:photo_id>/', comment_photo, name='comment-photo'),
 ]

@@ -1,7 +1,7 @@
 import uuid
 from distutils.command.upload import upload
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
-from django.contrib.auth.models import PermissionsMixin
+from django.contrib.auth.models import PermissionsMixin, User as UserMaster
 from django.db import models
 
 # Prepare UserManager
@@ -66,3 +66,38 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.email
+    
+class Photo(models.Model):
+    image = models.ImageField(upload_to='photos/')
+    is_approved = models.BooleanField(
+        'approved',
+        default=False,
+        help_text='Definição se a foto está aprovada',
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def approve(self):
+        self.is_approved = True
+        self.save()
+
+class Like(models.Model):
+    user = models.ForeignKey(UserMaster, on_delete=models.CASCADE)
+    photo = models.ForeignKey(Photo, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    @classmethod
+    def like_photo(cls, user, photo):
+        like, created = cls.objects.get_or_create(user=user, photo=photo)
+        return like
+
+class Comment(models.Model):
+    user = models.ForeignKey(UserMaster, on_delete=models.CASCADE)
+    photo = models.ForeignKey(Photo, on_delete=models.CASCADE)
+    text = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    @classmethod
+    def create_comment(cls, user, photo, text):
+        comment = cls(user=user, photo=photo, text=text)
+        comment.save()
+        return comment
