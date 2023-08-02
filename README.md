@@ -30,7 +30,6 @@ python manage.py migrate
 run:
 ```
 python manage.py createsuperuser
-python manage.py loaddata main/initial_data.json
 ``` 
 
 3. *(Optional): import sample data to play with the database: go to
