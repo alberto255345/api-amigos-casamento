@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from main.views import UserViewSet, UserUploadView, PhotoViewSet, approve_photo, like_photo, comment_photo
+from main.views import UserViewSet, UserUploadView, PhotoViewSet, approve_photo, like_photo, comment_photo, approved_photos_with_likes_and_comments
 from rest_framework import routers
 
 from rest_framework_simplejwt.views import (
@@ -39,4 +39,5 @@ urlpatterns = [
     path('approved/<int:photo_id>/', approve_photo, name='approve-photo'),
     path('like/<int:photo_id>/', like_photo, name='like-photo'),
     path('comment/<int:photo_id>/', comment_photo, name='comment-photo'),
+    path('galery/', approved_photos_with_likes_and_comments, name='approved-photos'),
 ]

@@ -93,3 +93,8 @@ Chave: "comment"
 Valor: Texto do comentário
 URL: http://localhost:8000/comment/1/
 Objetivo: Enviar um comentário para um item identificado como "1".
+
+Nome: Listar as Fotos Aprovadas com Suas Curtidas e Comentários
+Método: GET
+URL: http://localhost:8000/galery/
+Objetivo: Listar todas as fotos aprovadas junto das informações de curtidas e comentários.

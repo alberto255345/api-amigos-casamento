@@ -104,3 +104,20 @@ def comment_photo(request, photo_id):
     Comment.create_comment(user, photo, text)
     
     return Response(status=status.HTTP_201_CREATED)
+
+@api_view(['GET'])
+def approved_photos_with_likes_and_comments(request):
+    photos = Photo.objects.filter(is_approved=True)
+    photo_data = []
+
+    for photo in photos:
+        likes = Like.objects.filter(photo=photo).count()
+        comments = Comment.objects.filter(photo=photo)
+
+        serialized_photo = PhotoSerializer(photo).data
+        serialized_photo['likes'] = likes
+        serialized_photo['comments'] = [{'user': comment.user.username, 'text': comment.text} for comment in comments]
+
+        photo_data.append(serialized_photo)
+
+    return Response(photo_data, status=status.HTTP_200_OK)

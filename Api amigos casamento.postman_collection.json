@@ -137,6 +137,15 @@
 				"url": "http://localhost:8000/comment/1/"
 			},
 			"response": []
+		},
+		{
+			"name": "Listar as fotos aprovadas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8000/galery/"
+			},
+			"response": []
 		}
 	]
 }
